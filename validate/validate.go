@@ -9,7 +9,7 @@ import (
 
 func ValidateToken(currentToken string) error {
 
-	key := os.Getenv("TOKEN_KEY")
+	key := []byte(os.Getenv("TOKEN_KEY"))
 
 	token, err := jwt.Parse(currentToken, func(t *jwt.Token) (interface{}, error) {
 		return key, nil
